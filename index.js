@@ -13,6 +13,7 @@ app.use(cors());
 const passport = require('passport');
 const bodyParser=require('body-parser');
 const path=require('path');
+const swaggerAutogen = require('swagger-autogen')();
 
 // Other setup code...
 // Initialize Passport

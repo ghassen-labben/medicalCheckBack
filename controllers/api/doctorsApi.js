@@ -2,10 +2,44 @@
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const Doctor = require('../../models/Doctor');
+/**
+ * @swagger
+ * tags:
+ *   name: Doctors
+ *   description: Doctors API
+ */
+/**
+ * @swagger
+ * tags:
+ *   name: Doctors
+ *   description: Doctors API
+ */
 
+/**
+ * @swagger
+ * /doctors/test:
+ *   get:
+ *     summary: Test Doctors API
+ *     tags: [Doctors]
+ *     responses:
+ *       200:
+ *         description: Doctors API works
+ */
 module.exports.test = (req, res) => {
   res.json({ msg: 'Doctors API works' });
 };
+/**
+ * @swagger
+ * /doctors:
+ *   get:
+ *     summary: Get all doctors
+ *     tags: [Doctors]
+ *     responses:
+ *       200:
+ *         description: Returns the list of all doctors
+ *       400:
+ *         description: Bad request
+ */
 module.exports.getAllDoctors = (req, res) => {
     Doctor.find({}).populate('prescriptions').populate('patients')
         .then(doctors => res.json(doctors))
